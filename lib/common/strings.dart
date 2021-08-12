@@ -55,4 +55,8 @@ class Strings {
   static const String terms_and_conditions = "Terms and Conditions";
   static const String home = "Home";
   static const String about = "About";
+
+  static const String pos_1 = "1";
+  static const String pos_2 = "2";
+  static const String pos_3 = "3";
 }

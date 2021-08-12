@@ -41,41 +41,39 @@ class SubscribeBodyMobileState extends BaseState<SubscribeBodyMobile> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: CustomColors.white,
-        body: SingleChildScrollView(
-          child: Column(children: [
-            SizedBox(height: Dimens.dp_20),
-            Image.asset(ImagePath.subscribe_banner_image),
-            SizedBox(height: Dimens.dp_20),
-            Padding(
-                padding: EdgeInsets.all(Dimens.dp_20),
-                child: Text(Strings.choose_your_location.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: CustomColors.black,
-                        fontSize: Dimens.dp_22))),
-            Padding(
-                padding: EdgeInsets.only(
-                    top: Dimens.dp_20,
-                    bottom: Dimens.dp_20,
-                    left: Dimens.dp_40,
-                    right: Dimens.dp_40),
-                child: Text(Strings.check_subscription_availability,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: CustomColors.black,
-                        fontSize: Dimens.dp_18))),
-            SizedBox(height: Dimens.dp_20),
-            buildDropdownButton(),
-            SizedBox(height: Dimens.dp_20),
-            locationNotFoundWidget(),
-            SizedBox(height: Dimens.dp_20),
-            buttonContainer(),
-            SizedBox(height: Dimens.dp_50),
-            footerContainer()
-          ]),
-        ));
+        body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          SizedBox(height: Dimens.dp_20),
+          Image.asset(ImagePath.subscribe_banner_image),
+          SizedBox(height: Dimens.dp_20),
+          Padding(
+              padding: EdgeInsets.all(Dimens.dp_20),
+              child: Text(Strings.choose_your_location.toUpperCase(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: CustomColors.black,
+                      fontSize: Dimens.dp_22))),
+          Padding(
+              padding: EdgeInsets.only(
+                  top: Dimens.dp_20,
+                  bottom: Dimens.dp_20,
+                  left: Dimens.dp_40,
+                  right: Dimens.dp_40),
+              child: Text(Strings.check_subscription_availability,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: CustomColors.black,
+                      fontSize: Dimens.dp_18))),
+          SizedBox(height: Dimens.dp_20),
+          buildDropdownButton(),
+          SizedBox(height: Dimens.dp_20),
+          locationNotFoundWidget(),
+          SizedBox(height: Dimens.dp_20),
+          buttonContainer(),
+          SizedBox(height: Dimens.dp_50),
+          footerContainer()
+        ]));
   }
 
   Widget buttonContainer() {
