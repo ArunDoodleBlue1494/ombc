@@ -1,0 +1,47 @@
+name: ombc
+description: A new Flutter application for Old Madras Baking Company
+
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  #State Management
+  provider: ^5.0.0
+  #Store small set of local data
+  shared_preferences: ^2.0.6
+  #use for print log
+  fimber: ^0.6.1
+  #display message to user
+  fluttertoast: ^8.0.8
+  #Handle API call
+  dio: ^4.0.0
+  dio_cookie_manager: ^2.0.0
+  json_serializable: ^4.1.4
+  json_annotation: ^4.0.1
+  #flutter Loading animation
+  flutter_spinkit: ^5.0.0
+  cookie_jar: ^3.0.1
+  intl: ^0.17.0
+  #request & response log plugin
+  pretty_dio_logger: ^1.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+
