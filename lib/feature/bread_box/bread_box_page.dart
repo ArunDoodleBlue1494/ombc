@@ -13,6 +13,7 @@ class BreadBoxPage extends StatefulWidget {
 
 class _BreadBoxPageState extends State<BreadBoxPage> {
   bool cbValue = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,13 +35,11 @@ class _BreadBoxPageState extends State<BreadBoxPage> {
               itemCount: breadBoxList.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.only(left: 25,right: 25,top: 5,bottom: 5),
+                  padding:
+                      EdgeInsets.only(left: 25, right: 25, top: 5, bottom: 5),
                   child: Card(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20)
-                      )
-                    ),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
                     elevation: 2,
                     child: Column(
                       children: [
@@ -57,27 +56,44 @@ class _BreadBoxPageState extends State<BreadBoxPage> {
                               value: breadBoxList[index].isSelected,
                               onChanged: (bool? value) {
                                 setState(() {
-                                  breadBoxList[index].isSelected=value!;
+                                  breadBoxList[index].isSelected = value!;
                                 });
                               },
                             )
                           ],
                         ),
-                        Image.asset(breadBoxList[index].productImage!,width: 150,height: 150,),
+                        Image.asset(
+                          breadBoxList[index].productImage!,
+                          width: 150,
+                          height: 150,
+                        ),
                         SizedBox(height: Dimens.dp_30),
-                        Text(breadBoxList[index].productName!,style: TextStyle(fontSize: 18),),
+                        Text(
+                          breadBoxList[index].productName!,
+                          style: TextStyle(fontSize: 18),
+                        ),
                         SizedBox(height: Dimens.dp_30),
-                        Text(breadBoxList[index].ingredient!,style: TextStyle(fontSize: 14,color: CustomColors.darkGreyTextColor),),
+                        Text(
+                          breadBoxList[index].ingredient!,
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: CustomColors.darkGreyTextColor),
+                        ),
                         SizedBox(height: Dimens.dp_30),
                         Padding(
                           padding: EdgeInsets.only(bottom: 20),
-                          child:  Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(Strings.price,style: TextStyle(fontSize: 20),),
-                              Text(breadBoxList[index].price!,style: TextStyle(fontSize: 20),),
+                              Text(
+                                Strings.price,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              Text(
+                                breadBoxList[index].price!,
+                                style: TextStyle(fontSize: 20),
+                              ),
                             ],
-
                           ),
                         )
                       ],
