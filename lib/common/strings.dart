@@ -49,6 +49,11 @@ class Strings {
   static const String contact_email_ombc = "ombcdaily@ombc.in";
   static const String select = "Select";
   static const String cancel = "Cancel";
+  static const String choose_your_bread = "CHOOSE YOUR BREAD";
+  static const String your_bread_box_contains = "YOUR BREAD BOX CONTAINS";
+  static const String select_max = "Select maximum of 3 loaves per order ";
+  static const String price = "Price: ";
+  static const String next = "Next";
 
 
 }
