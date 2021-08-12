@@ -34,7 +34,9 @@ dependencies:
   intl: ^0.17.0
   #request & response log plugin
   pretty_dio_logger: ^1.1.1
-
+  responsive_framework: ^0.1.4
+  animations: ^2.0.1
+  google_fonts: ^2.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

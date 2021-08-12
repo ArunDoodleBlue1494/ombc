@@ -9,6 +9,7 @@ import 'package:ombc/model/response/user_info.dart';
 import 'package:ombc/utils/shared_pref_manager.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
 
 class CodeSnippet {
   static final CodeSnippet _singleton = new CodeSnippet._internal();
@@ -89,5 +90,12 @@ class CodeSnippet {
     Navigator.pushReplacementNamed(context, Routes.login);
   }
 
+  bool isMobile(BuildContext context) {
+    return ResponsiveWrapper.of(context).isMobile;
+  }
+
+  bool isDesktop(BuildContext context) {
+    return ResponsiveWrapper.of(context).isDesktop;
+  }
 
 }

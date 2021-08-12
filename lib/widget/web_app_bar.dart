@@ -74,7 +74,11 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(Strings.subscribeNow,style: TextStyle(fontSize: Dimens.standard_8),),
+                  InkWell(
+                    onTap: (){
+                      Navigation.navigateTo(context, Routes.subscribeNow);
+                    },
+                      child: Text(Strings.subscribeNow,style: TextStyle(fontSize: Dimens.standard_8),)),
                   Text(Strings.homeDescription,style: TextStyle(fontSize: Dimens.standard_8)),
                 ],
               ),

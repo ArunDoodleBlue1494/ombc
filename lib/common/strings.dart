@@ -54,8 +54,12 @@ class Strings {
   static const String drop_down_item_10 = "Ramapuram";
   static const String drop_down_item_11 = "Egmore";
 
-  static const String copyright_text = "Copyrights © OMBC 2016. All Rights Reserved.";
-  static const String terms_and_conditions = "Terms and Conditions";
-  static const String home = "Home";
-  static const String about = "About";
+
+
+  //Footer
+  static const String copyWriteLabel =
+      "Copyrights © OMBC 2016. All Rights Reserved.";
+  static const String home = "HOME";
+  static const String about = "ABOUT";
+  static const String terms_condition = "TERMS & CONDITIONS";
 }

@@ -9,5 +9,6 @@ class Routes
   static const String ourStory = "/our_story";
   static const String ourProducts = "/our_products";
   static const String storeLocator = "/store_locator";
+  static const String subscribeNow = "/subscribe_now";
 
 }

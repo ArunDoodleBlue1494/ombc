@@ -8,6 +8,7 @@ class ImagePath
   static const String ombcLogo = 'assets/images/ombc_logo.png';
   static const String chennai = 'assets/images/chennai.png';
   static const String hyderabad = 'assets/images/hyderabad.png';
+  static const String ombcSideBanner = 'assets/images/ombc_daily_button.png';
 
 
   static const String subscribe_banner_image = 'assets/images/subscribe_top_banner.jpg';
