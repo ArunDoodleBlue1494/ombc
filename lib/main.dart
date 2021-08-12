@@ -10,6 +10,7 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'common/custom_colors.dart';
 import 'common/routes.dart';
 import 'common/strings.dart';
+import 'feature/intro/intro_slider.dart';
 import 'feature/login/login_page.dart';
 import 'feature/login/login_provider.dart';
 import 'feature/our_story/our_story.dart';
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
             top: false,
             bottom: false,
             // child: OurStory(),
-            child: OurStory(),
+            child: IntroSlider(),
           ),
           routes: {
             Routes.login: (context) => LoginPage(),

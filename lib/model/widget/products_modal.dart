@@ -34,21 +34,21 @@ List<ProductTypeModal> productsList = [
         title: "100% atta bread with 11 grains.",
         image: ImagePath.cerealBread),
     ProductsModal(
-        name: "Sweet Bread",
-        title: "Sweet Milk Bread",
-        image: ImagePath.milkBread),
+        name: "Pav Bun",
+        title: "Bombay style parsi bread.",
+        image: ImagePath.pavBun),
     ProductsModal(
-        name: "Country Loaf",
-        title: "Traditional white bread.",
-        image: ImagePath.countryLoaf),
+        name: "gluten free bread",
+        title: "Maida and atta free bread.",
+        image: ImagePath.glutenFreeBread),
     ProductsModal(
-        name: "Wheat bread",
-        title: "100% atta bread.",
-        image: ImagePath.wheatBread),
+        name: "Garlic Roll",
+        title: "White bread made with roasted garlic.",
+        image: ImagePath.garlicRoll),
     ProductsModal(
-        name: "cereal bread",
-        title: "100% atta bread with 11 grains.",
-        image: ImagePath.cerealBread),
+        name: "Burger Bun",
+        title: "Bread roll used for burgers.",
+        image: ImagePath.burgerBun),
   ]),
   ProductTypeModal(type: "Speciality Breads", products: [
     ProductsModal(

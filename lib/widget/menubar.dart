@@ -54,8 +54,8 @@ class MenuBar extends StatelessWidget with PreferredSizeWidget{
                       constraints: BoxConstraints.expand(),
                       child: IconButton(
                           onPressed: () => {
-                                Navigator.popUntil(
-                                    context, ModalRoute.withName(Routes.home))
+                                // Navigator.popUntil(
+                                //     context, ModalRoute.withName(Routes.home))
                               },
                           padding: EdgeInsets.all(0.0),
                           icon: Image.asset(ImagePath.ombcLogo)))),
@@ -74,13 +74,13 @@ class MenuBar extends StatelessWidget with PreferredSizeWidget{
                               width: 16,
                             ),
                             _renderHeaderButton(Strings.ourProducts, () => {
-                            Navigation.navigateTo(context, Routes.ourProducts)
+                            Navigation.navigateAndFinish(context, Routes.ourProducts)
                             }),
                             SizedBox(
                               width: 16,
                             ),
                             _renderHeaderButton(Strings.storeLocator, () => {
-                            Navigation.navigateTo(context, Routes.storeLocator)
+                            Navigation.navigateAndFinish(context, Routes.storeLocator)
                             }),
                             SizedBox(
                               width: 16,
@@ -103,7 +103,7 @@ class MenuBar extends StatelessWidget with PreferredSizeWidget{
                             ),
                             InkWell(
                               onTap: (){
-                                Navigation.navigateTo(context, Routes.subscribeNow);
+                                Navigation.navigateAndFinish(context, Routes.subscribeNow);
                               },
                               child: Image.asset(
                                 ImagePath.ombcSideBanner,
@@ -139,5 +139,5 @@ class MenuBar extends StatelessWidget with PreferredSizeWidget{
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize =>  Size.fromHeight(kToolbarHeight);
+  Size get preferredSize =>  Size.fromHeight(200);
 }
