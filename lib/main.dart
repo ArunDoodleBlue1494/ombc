@@ -9,6 +9,7 @@ import 'common/routes.dart';
 import 'common/strings.dart';
 import 'feature/login/login_page.dart';
 import 'feature/login/login_provider.dart';
+import 'feature/subscribe/subscribe_page.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -41,10 +42,12 @@ class MyApp extends StatelessWidget {
           home: SafeArea(
             top: false,
             bottom: false,
-            child: OurProducts(),
+            child: SubscribePage(),
           ),
           routes: {
             Routes.login: (context) => LoginPage(),
+            Routes.ourProducts: (context) => OurProducts(),
+            Routes.subscribe: (context) => SubscribePage(),
           }),
     );
   }

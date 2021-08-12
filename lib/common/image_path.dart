@@ -6,4 +6,5 @@ class ImagePath
   static const String milkBread = 'assets/images/milk_bread.jpg';
   static const String wheatBread = 'assets/images/wheat_bread.jpg';
   static const String ombcLogo = 'assets/images/ombc_logo.png';
+  static const String subscribe_banner_image = 'assets/images/subscribe_top_banner.jpg';
 }
