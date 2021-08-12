@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ombc/feature/our_products/our_products_screen.dart';
+import 'package:ombc/feature/subscribe/subscribe_page.dart';
 import 'package:provider/provider.dart';
 import 'common/custom_colors.dart';
 import 'common/routes.dart';
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
           home: SafeArea(
             top: false,
             bottom: false,
-            child: OurStory(),
+            // child: OurStory(),
+            child: SubscribePage(),
           ),
           routes: {
             Routes.login: (context) => LoginPage(),

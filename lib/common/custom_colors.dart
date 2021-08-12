@@ -10,4 +10,7 @@ class CustomColors
   ////Base
   static const Color color422d28 = Color(0xFF422d28);
   static const Color colorEAEAEA = Color(0xFFeaeaea);
+  static const Color brown = Color(0xFF281310);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
 }
