@@ -9,6 +9,8 @@ import 'common/routes.dart';
 import 'common/strings.dart';
 import 'feature/login/login_page.dart';
 import 'feature/login/login_provider.dart';
+import 'feature/our_story/our_story.dart';
+import 'feature/store_locator/store_locator_screen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -41,10 +43,13 @@ class MyApp extends StatelessWidget {
           home: SafeArea(
             top: false,
             bottom: false,
-            child: OurProducts(),
+            child: OurStory(),
           ),
           routes: {
             Routes.login: (context) => LoginPage(),
+            Routes.ourStory: (context) => OurStory(),
+            Routes.ourProducts: (context) => OurProducts(),
+            Routes.storeLocator : (context) => StoreLocatorScreen()
           }),
     );
   }

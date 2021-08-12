@@ -16,16 +16,11 @@ class ProductBodyWeb extends StatefulWidget {
 
 class _ProductBodyWebState extends State<ProductBodyWeb> {
 
-  double _crossAxisSpacing = 8, _mainAxisSpacing = 12, _aspectRatio = 2;
-  int _crossAxisCount = 2;
+
 
   @override
   Widget build(BuildContext context) {
 
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    var width = (screenWidth - ((_crossAxisCount - 1) * _crossAxisSpacing)) / _crossAxisCount;
-    var height = width / _aspectRatio;
     return Container(
       child: SingleChildScrollView(
         child: Column(
@@ -107,58 +102,56 @@ class _ProductBodyWebState extends State<ProductBodyWeb> {
         ),
         Flexible(
           flex: 3,
-          child: Scrollbar(
-            child: ListView.builder(
-                physics:  AlwaysScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: productsList.length,
-                itemBuilder: (context, listIndex) {
-                  return Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: Dimens.standard_20),
-                    child: Container(
-                        width: double.infinity,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            Container(
-                                height: 40,
-                                color: CustomColors.colorEAEAEA,
-                                child: Center(
-                                  child: Text(
-                                    productsList[listIndex].type!.toUpperCase(),
-                                    style: TextStyle(color: Colors.black),
+          child: ListView.builder(
+              physics: const AlwaysScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: productsList.length,
+              itemBuilder: (context, listIndex) {
+                return Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: Dimens.standard_20),
+                  child: Container(
+                      width: double.infinity,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Container(
+                              height: Dimens.standard_40,
+                              color: CustomColors.colorEAEAEA,
+                              child: Center(
+                                child: Text(
+                                  productsList[listIndex].type!.toUpperCase(),
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              )),
+                          SizedBox(
+                            height: Dimens.standard_20,
+                          ),
+                          GridView.builder(
+                              shrinkWrap: true,
+                              gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 4,
+                                crossAxisSpacing: Dimens.standard_40,
+                                mainAxisSpacing: Dimens.standard_100,
+                                childAspectRatio: 1/1,
                                   ),
-                                )),
-                            SizedBox(
-                              height: Dimens.standard_20,
-                            ),
-                            GridView.builder(
-                                shrinkWrap: true,
-                                gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                  crossAxisSpacing: 40,
-                                  mainAxisSpacing: 100,
-                                  childAspectRatio: 1/1,
-                                    ),
-                                itemCount:
-                                    productsList[listIndex].products!.length,
-                                itemBuilder: (BuildContext ctx, gridIndex) {
-                                  return Tooltip(
-                                    message: productsList[listIndex]
-                                        .products![gridIndex].title!,
-                                    child: ProductsCard(
-                                      productItem: productsList[listIndex]
-                                          .products![gridIndex],
-                                    ),
-                                  );
-                                })
-                          ],
-                        )),
-                  );
-                }),
-          ),
+                              itemCount:
+                                  productsList[listIndex].products!.length,
+                              itemBuilder: (BuildContext ctx, gridIndex) {
+                                return Tooltip(
+                                  message: productsList[listIndex]
+                                      .products![gridIndex].title!,
+                                  child: ProductsCard(
+                                    productItem: productsList[listIndex]
+                                        .products![gridIndex],
+                                  ),
+                                );
+                              })
+                        ],
+                      )),
+                );
+              }),
         )
       ],
     );
