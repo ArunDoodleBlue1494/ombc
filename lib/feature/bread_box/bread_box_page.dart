@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ombc/common/custom_colors.dart';
 import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/strings.dart';
@@ -13,6 +15,18 @@ class BreadBoxPage extends StatefulWidget {
 
 class _BreadBoxPageState extends State<BreadBoxPage> {
   bool cbValue = false;
+  late int quantity;
+
+  void initState() {
+    super.initState();
+    quantity = 0;
+  }
+
+  void updateQuantity(int quantity, int index) {
+    setState(() {
+      this.quantity = quantity;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,22 +64,71 @@ class _BreadBoxPageState extends State<BreadBoxPage> {
                               padding: EdgeInsets.only(left: 10),
                               child: Image.asset('assets/images/veg.gif'),
                             ),
-                            Checkbox(
-                              checkColor: Colors.white,
-                              shape: CircleBorder(),
-                              value: breadBoxList[index].isSelected,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  breadBoxList[index].isSelected = value!;
-                                });
-                              },
-                            )
+                            Transform.scale(
+                              scale: 1.5,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                shape: CircleBorder(),
+                                value: breadBoxList[index].isSelected,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    breadBoxList[index].isSelected = value!;
+                                  });
+                                },
+                              ),
+                            ),
                           ],
                         ),
-                        Image.asset(
-                          breadBoxList[index].productImage!,
-                          width: 150,
-                          height: 150,
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Image.asset(
+                              breadBoxList[index].productImage!,
+                              width: 150,
+                              height: 150,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 25, right: 25),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconButton(
+                                      iconSize: 50,
+                                      color: CustomColors.brown,
+                                      onPressed: () {
+                                        if (quantity > 0) {
+                                          quantity--;
+                                          breadBoxList[index].quantity=(breadBoxList[index].quantity!-1);
+                                          updateQuantity(quantity,index);
+                                        }
+                                      },
+                                      icon: const Icon(Icons.remove_circle)),
+                                  Text(
+                                    breadBoxList[index].quantity.toString(),
+                                    style: TextStyle(
+                                        fontSize: 60,
+                                        color: CustomColors.brown),
+                                  ),
+                                  IconButton(
+                                      iconSize: 50,
+                                      color: CustomColors.brown,
+                                      onPressed: () {
+                                        if (quantity == 3) {
+                                          Fluttertoast.showToast(
+                                              msg:
+                                                  "Already 3 loaves per order has been selected");
+                                        } else {
+                                          quantity++;
+                                          breadBoxList[index].quantity=(breadBoxList[index].quantity!+1);
+                                          updateQuantity(quantity,index);
+                                        }
+                                      },
+                                      icon: const Icon(Icons.add_circle_sharp)),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(height: Dimens.dp_30),
                         Text(
@@ -95,12 +158,29 @@ class _BreadBoxPageState extends State<BreadBoxPage> {
                               ),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 );
-              })
+              }),
+          SizedBox(
+            height: 20,
+          ),
+          TextButton(
+            style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.brown),
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.brown),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                ))),
+            onPressed: () => Fluttertoast.showToast(msg: "Clicked next"),
+            child: Text(
+              Strings.next,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ),
         ],
       ),
     );

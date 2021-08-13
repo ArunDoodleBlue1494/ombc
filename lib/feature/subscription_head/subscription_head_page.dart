@@ -62,14 +62,27 @@ class _SubscriptionHeadPageState extends State<SubscriptionHeadPage> {
                       Text(
                         Strings.choose_your_bread,
                         style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                            fontSize: 24, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: Dimens.dp_30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          /*MaterialButton(
+                            color: CustomColors.brown,
+                            shape: CircleBorder(),
+                            onPressed: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.all(100),
+                              child: Text(
+                                '1',
+                                style: TextStyle(color: Colors.white, fontSize: 20),
+                              ),
+                            ),
+                          ),*/
                           Container(
                             decoration: BoxDecoration(
+                              color: CustomColors.brown,
                               shape: BoxShape.circle,
                               border: Border.all(
                                   color: CustomColors.darkGreyTextColor,
@@ -81,7 +94,7 @@ class _SubscriptionHeadPageState extends State<SubscriptionHeadPage> {
                                 "1",
                                 style: TextStyle(
                                     fontSize: 20,
-                                    color: CustomColors.darkGreyTextColor),
+                                    color: CustomColors.white),
                               ),
                             ),
                           ),
@@ -131,26 +144,6 @@ class _SubscriptionHeadPageState extends State<SubscriptionHeadPage> {
                       BreadBoxPage(),
                       SizedBox(
                         height: 30,
-                      ),
-                      TextButton(
-                        style: ButtonStyle(
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.brown),
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.brown),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            ))),
-                        onPressed: () =>
-                            Fluttertoast.showToast(msg: "Clicked next"),
-                        child: Text(
-                          Strings.next,
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 40,
                       ),
                     ],
                   )),
