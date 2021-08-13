@@ -6,7 +6,9 @@ import 'package:ombc/base/base_state.dart';
 import 'package:ombc/common/custom_colors.dart';
 import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/image_path.dart';
+import 'package:ombc/common/routes.dart';
 import 'package:ombc/common/strings.dart';
+import 'package:ombc/feature/subscription_head/subscription_head_page.dart';
 
 class SubscribeBodyMobile extends StatefulWidget {
   @override
@@ -84,7 +86,18 @@ class SubscribeBodyMobileState extends BaseState<SubscribeBodyMobile> {
           child: Text(Strings.select,
               style:
                   TextStyle(color: CustomColors.brown, fontSize: Dimens.dp_18)),
-          onPressed: () => Fluttertoast.showToast(msg: "Clicked select"),
+          onPressed: () {
+            if(selectedItem==Strings.choose_your_location){
+              Fluttertoast.showToast(msg: "Please select your location");
+            }
+            else{
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SubscriptionHeadPage(),
+                  ));
+            }
+          },
           style: ElevatedButton.styleFrom(
             side: BorderSide(width: Dimens.standard_1, color: Colors.brown),
             shape: RoundedRectangleBorder(
