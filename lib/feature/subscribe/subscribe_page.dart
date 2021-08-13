@@ -16,7 +16,6 @@ class SubscribePageState extends BaseState<SubscribePage> {
   @override
   void initState() {
     super.initState();
->>>>>>>>> Temporary merge branch 2
   }
 
   @override
@@ -30,7 +29,6 @@ class SubscribePageState extends BaseState<SubscribePage> {
           mobile: SubscribeBodyMobile(),
           web: SubscribeBodyWeb(),
         ),
->>>>>>>>> Temporary merge branch 2
       ),
     );
   }

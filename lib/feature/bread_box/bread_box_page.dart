@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ombc/common/custom_colors.dart';
 import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/strings.dart';
+import 'package:ombc/feature/subscribe/deliverySchedule/delivery_schedule.dart';
 import 'package:ombc/model/widget/bread_box_model.dart';
 
 class BreadBoxPage extends StatefulWidget {
@@ -88,46 +89,56 @@ class _BreadBoxPageState extends State<BreadBoxPage> {
                               height: 150,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 25, right: 25),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  IconButton(
-                                      iconSize: 50,
-                                      color: CustomColors.brown,
-                                      onPressed: () {
-                                        if (quantity > 0) {
-                                          quantity--;
-                                          breadBoxList[index].quantity=(breadBoxList[index].quantity!-1);
-                                          updateQuantity(quantity,index);
-                                        }
-                                      },
-                                      icon: const Icon(Icons.remove_circle)),
-                                  Text(
-                                    breadBoxList[index].quantity.toString(),
-                                    style: TextStyle(
-                                        fontSize: 60,
-                                        color: CustomColors.brown),
+                                padding: EdgeInsets.only(left: 25, right: 25),
+                                child: Visibility(
+                                  visible: breadBoxList[index].isSelected!,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      IconButton(
+                                          iconSize: 50,
+                                          color: CustomColors.brown,
+                                          onPressed: () {
+                                            if (quantity > 0) {
+                                              quantity--;
+                                              breadBoxList[index].quantity =
+                                                  (breadBoxList[index]
+                                                          .quantity! -
+                                                      1);
+                                              updateQuantity(quantity, index);
+                                            }
+                                          },
+                                          icon:
+                                              const Icon(Icons.remove_circle)),
+                                      Text(
+                                        breadBoxList[index].quantity.toString(),
+                                        style: TextStyle(
+                                            fontSize: 60,
+                                            color: CustomColors.brown),
+                                      ),
+                                      IconButton(
+                                          iconSize: 50,
+                                          color: CustomColors.brown,
+                                          onPressed: () {
+                                            if (quantity == 3) {
+                                              Fluttertoast.showToast(
+                                                  msg:
+                                                      "Already 3 loaves per order has been selected");
+                                            } else {
+                                              quantity++;
+                                              breadBoxList[index].quantity =
+                                                  (breadBoxList[index]
+                                                          .quantity! +
+                                                      1);
+                                              updateQuantity(quantity, index);
+                                            }
+                                          },
+                                          icon: const Icon(
+                                              Icons.add_circle_sharp)),
+                                    ],
                                   ),
-                                  IconButton(
-                                      iconSize: 50,
-                                      color: CustomColors.brown,
-                                      onPressed: () {
-                                        if (quantity == 3) {
-                                          Fluttertoast.showToast(
-                                              msg:
-                                                  "Already 3 loaves per order has been selected");
-                                        } else {
-                                          quantity++;
-                                          breadBoxList[index].quantity=(breadBoxList[index].quantity!+1);
-                                          updateQuantity(quantity,index);
-                                        }
-                                      },
-                                      icon: const Icon(Icons.add_circle_sharp)),
-                                ],
-                              ),
-                            ),
+                                )),
                           ],
                         ),
                         SizedBox(height: Dimens.dp_30),
@@ -175,7 +186,17 @@ class _BreadBoxPageState extends State<BreadBoxPage> {
                     RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),
                 ))),
-            onPressed: () => Fluttertoast.showToast(msg: "Clicked next"),
+            onPressed: () {
+              if (quantity == 0) {
+                Fluttertoast.showToast(msg: "Choose your bread");
+              } else {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DeliverySchedulePage(),
+                    ));
+              }
+            },
             child: Text(
               Strings.next,
               style: TextStyle(color: Colors.white, fontSize: 16),

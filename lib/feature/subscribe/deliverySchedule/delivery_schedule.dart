@@ -4,6 +4,7 @@ import 'package:ombc/base/base_state.dart';
 import 'package:ombc/common/custom_colors.dart';
 import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/strings.dart';
+import 'package:ombc/feature/subscribe/finalCart/subscription_final_step.dart';
 import 'package:ombc/widget/top_banner_widget.dart';
 
 class DeliverySchedulePage extends StatefulWidget {
@@ -57,7 +58,30 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
                     // StepperDemo(),
                     customStepperView(),
                     SizedBox(height: Dimens.dp_50),
-                    contentView()
+                    contentView(),
+                    TextButton(
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.brown),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.brown),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ))),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SubscriptionFinalStepPage(),
+                            ));
+                      },
+                      child: Text(
+                        Strings.next,
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -82,8 +106,7 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
               Text(Strings.products_included.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: CustomColors.black,
-                      fontSize: Dimens.dp_22))
+                      color: CustomColors.black, fontSize: Dimens.dp_22))
             ],
           )
         ],
@@ -96,9 +119,7 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
       children: [
         Text(Strings.delivery_days.toUpperCase(),
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: CustomColors.black,
-                fontSize: Dimens.dp_22))
+            style: TextStyle(color: CustomColors.black, fontSize: Dimens.dp_22))
       ],
     );
   }
@@ -108,9 +129,8 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
       children: [
         Text(Strings.select_plan.toUpperCase(),
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: CustomColors.black,
-                fontSize: Dimens.dp_22)),
+            style:
+                TextStyle(color: CustomColors.black, fontSize: Dimens.dp_22)),
         SizedBox(height: Dimens.dp_20),
       ],
     );
@@ -124,17 +144,15 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(
-                  color: CustomColors.darkGreyTextColor,
-                  width: 0.5),
+              border:
+                  Border.all(color: CustomColors.darkGreyTextColor, width: 0.5),
             ),
             child: Padding(
               padding: EdgeInsets.all(Dimens.dp_25),
               child: Text(
                 Strings.pos_1,
                 style: TextStyle(
-                    fontSize: 20,
-                    color: CustomColors.darkGreyTextColor),
+                    fontSize: 20, color: CustomColors.darkGreyTextColor),
               ),
             ),
           ),
@@ -146,17 +164,15 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(
-                  color: CustomColors.darkGreyTextColor,
-                  width: 0.5),
+              border:
+                  Border.all(color: CustomColors.darkGreyTextColor, width: 0.5),
             ),
             child: Padding(
               padding: EdgeInsets.all(Dimens.dp_25),
               child: Text(
                 Strings.pos_2,
                 style: TextStyle(
-                    fontSize: Dimens.dp_20,
-                    color: CustomColors.color422d28),
+                    fontSize: Dimens.dp_20, color: CustomColors.color422d28),
               ),
             ),
           ),
@@ -168,9 +184,8 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(
-                  color: CustomColors.darkGreyTextColor,
-                  width: 0.5),
+              border:
+                  Border.all(color: CustomColors.darkGreyTextColor, width: 0.5),
             ),
             child: Padding(
               padding: EdgeInsets.all(Dimens.dp_25),
