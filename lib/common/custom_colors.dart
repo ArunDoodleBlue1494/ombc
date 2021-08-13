@@ -10,6 +10,7 @@ class CustomColors
   static const Color forgot_pwd = Color(0xFF3FC1E8);
   ////Base
   static const Color color422d28 = Color(0xFF422d28);
+  static const Color color63433b = Color(0xff63433b);
   static const Color colorEAEAEA = Color(0xFFeaeaea);
   static const Color brown = Color(0xFF281310);
   static const Color white = Color(0xFFFFFFFF);

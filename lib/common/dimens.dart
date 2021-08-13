@@ -1,5 +1,6 @@
 class Dimens
 {
+  static const double dp_1 = 1;
   static const double dp_5 = 5;
   static const double dp_8 = 8;
   static const double dp_10 = 10;
@@ -17,6 +18,7 @@ class Dimens
   static const double dp_70 = 70;
   static const double dp_80 = 80;
   static const double dp_22 = 22;
+  static const double dp_60 = 60;
   static const double dp_100 = 100;
   static const double dp_150 = 150;
 

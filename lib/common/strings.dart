@@ -55,5 +55,46 @@ class Strings {
   static const String price = "Price: ";
   static const String next = "Next";
 
+  static const String choose_your_location = "Choose Your Location";
+  static const String choose_your_bread = "Choose Your Bread";
+  static const String select_your_location = "Select Your Location";
+  static const String check_subscription_availability = "Check Subscription availability in your area. Select your location.";
+  static const String location_not_found = " If you do not find your location listed please email us at ";
+  static const String contact_email_ombc = "ombcdaily@ombc.in";
+  static const String select = "Select";
+  static const String cancel = "Cancel";
 
+  static const String drop_down_item_0 = "Choose Your Location";
+  static const String drop_down_item_1 = "Royapettah";
+  static const String drop_down_item_2 = "Aminjikarai";
+  static const String drop_down_item_3 = "Anna Nagar East";
+  static const String drop_down_item_4 = "Anna Nagar west";
+  static const String drop_down_item_5 = "Anna Nagar South";
+  static const String drop_down_item_6 = "Anna Nagar North";
+  static const String drop_down_item_7 = "Poes Garden";
+  static const String drop_down_item_8 = "Mylapur";
+  static const String drop_down_item_9 = "Guindy";
+  static const String drop_down_item_10 = "Ramapuram";
+  static const String drop_down_item_11 = "Egmore";
+
+  static const String copyright_text = "Copyrights © OMBC 2016. All Rights Reserved.";
+  static const String terms_and_conditions = "Terms and Conditions";
+  static const String home = "Home";
+  static const String about = "About";
+
+  static const String pos_1 = "1";
+  static const String pos_2 = "2";
+  static const String pos_3 = "3";
+
+  static const String select_plan = "Select Plan";
+  static const String delivery_days = "Delivery Days";
+  static const String products_included = "Products Included";
+
+  static const String once_a_week = "Once a week";
+  static const String twice_a_week = "Twice a week";
+  static const String thrice_a_week = "Thrice a week";
+  static const String subscribe = "Subscribe";
+  static const String selected_bread = "Selected Bread";
+  static const String scheduled = "Schedule";
+  static const String cost = "Cost";
 }
