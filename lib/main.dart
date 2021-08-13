@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ombc/feature/our_products/our_products_screen.dart';
 import 'package:ombc/feature/subscribe/deliverySchedule/delivery_schedule.dart';
+import 'package:ombc/feature/subscribe/finalCart/subscription_final_step.dart';
 import 'package:ombc/feature/subscribe/steps/susbscription_steps.dart';
 import 'package:ombc/feature/subscribe/subscribe_page.dart';
 import 'package:ombc/feature/subscribe/test/stepper_demo.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
           home: SafeArea(
             top: false,
             bottom: false,
-            child: DeliverySchedulePage(),
+            child: SubscriptionFinalStepPage(),
           ),
           routes: {
             Routes.login: (context) => LoginPage(),

@@ -55,7 +55,9 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
                     SizedBox(height: Dimens.dp_20),
                     // stepperHeader()
                     // StepperDemo(),
-                    customStepperView()
+                    customStepperView(),
+                    SizedBox(height: Dimens.dp_50),
+                    contentView()
                   ],
                 ),
               ),
@@ -67,59 +69,119 @@ class DeliverySchedulePageState extends BaseState<DeliverySchedulePage> {
     );
   }
 
+  Widget contentView() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: Dimens.dp_100),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          planColumn(),
+          deliveryDaysColumn(),
+          Column(
+            children: [
+              Text(Strings.products_included.toUpperCase(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: CustomColors.black,
+                      fontSize: Dimens.dp_22))
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget deliveryDaysColumn() {
+    return Column(
+      children: [
+        Text(Strings.delivery_days.toUpperCase(),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: CustomColors.black,
+                fontSize: Dimens.dp_22))
+      ],
+    );
+  }
+
+  Widget planColumn() {
+    return Column(
+      children: [
+        Text(Strings.select_plan.toUpperCase(),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: CustomColors.black,
+                fontSize: Dimens.dp_22)),
+        SizedBox(height: Dimens.dp_20),
+      ],
+    );
+  }
+
   Widget customStepperView() {
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-              width: Dimens.dp_100,
-              height: Dimens.dp_60,
-              decoration: BoxDecoration(
-                color: CustomColors.color422d28, // border color
-                shape: BoxShape.circle,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                  color: CustomColors.darkGreyTextColor,
+                  width: 0.5),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(Dimens.dp_25),
+              child: Text(
+                Strings.pos_1,
+                style: TextStyle(
+                    fontSize: 20,
+                    color: CustomColors.darkGreyTextColor),
               ),
-              child: Container(
-                child: Padding(
-                  padding: EdgeInsets.all(Dimens.standard_1),
-                  // border width
-                  child: Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: CustomColors.greenTextColor // inner circle color
-                        ),
-                    child: Container(
-                      child: Text(Strings.pos_1,
-                          style: TextStyle(
-                              fontSize: Dimens.standard_30)),
-                    ), // inner content
-                  ),
-                ),
-              )),
+            ),
+          ),
           Container(
-              width: Dimens.dp_100,
-              height: Dimens.dp_60,
-              decoration: BoxDecoration(
-                color: CustomColors.color422d28, // border color
-                shape: BoxShape.circle,
+            height: Dimens.dp_1,
+            width: Dimens.dp_80,
+            color: CustomColors.darkGreyTextColor,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                  color: CustomColors.darkGreyTextColor,
+                  width: 0.5),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(Dimens.dp_25),
+              child: Text(
+                Strings.pos_2,
+                style: TextStyle(
+                    fontSize: Dimens.dp_20,
+                    color: CustomColors.color422d28),
               ),
-              child: Container(
-                child: Padding(
-                  padding: EdgeInsets.all(Dimens.standard_1),
-                  // border width
-                  child: Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: CustomColors.greenTextColor // inner circle color
-                    ),
-                    child: Container(
-                      child: Text(Strings.pos_1,
-                          style: TextStyle(
-                              fontSize: Dimens.standard_30)),
-                    ), // inner content
-                  ),
-                ),
-              )),
+            ),
+          ),
+          Container(
+            height: Dimens.standard_1,
+            width: Dimens.dp_80,
+            color: CustomColors.darkGreyTextColor,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                  color: CustomColors.darkGreyTextColor,
+                  width: 0.5),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(Dimens.dp_25),
+              child: Text(
+                Strings.pos_3,
+                style: TextStyle(
+                    fontSize: Dimens.dp_20,
+                    color: CustomColors.darkGreyTextColor),
+              ),
+            ),
+          )
         ],
       ),
     );

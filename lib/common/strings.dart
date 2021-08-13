@@ -59,4 +59,16 @@ class Strings {
   static const String pos_1 = "1";
   static const String pos_2 = "2";
   static const String pos_3 = "3";
+
+  static const String select_plan = "Select Plan";
+  static const String delivery_days = "Delivery Days";
+  static const String products_included = "Products Included";
+
+  static const String once_a_week = "Once a week";
+  static const String twice_a_week = "Twice a week";
+  static const String thrice_a_week = "Thrice a week";
+  static const String subscribe = "Subscribe";
+  static const String selected_bread = "Selected Bread";
+  static const String scheduled = "Schedule";
+  static const String cost = "Cost";
 }
