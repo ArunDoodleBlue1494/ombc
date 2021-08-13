@@ -54,6 +54,7 @@ class MyApp extends StatelessWidget {
                 ResponsiveBreakpoint.autoScale(800, name: TABLET),
                 ResponsiveBreakpoint.resize(1000, name: DESKTOP)
               ],
+
               background: Container(color: Colors.white)),
           home: SafeArea(
             top: false,

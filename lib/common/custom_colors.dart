@@ -16,4 +16,5 @@ class CustomColors
   static const Color brown = Color(0xFF281310);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
+  static const Color drawerBackground = Color(0xFF2d211f);
 }
