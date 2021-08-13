@@ -84,7 +84,7 @@ class SubscribeBodyWebState extends BaseState<SubscribeBodyWeb> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(Strings.copyright_text,
+          Text(Strings.copyWriteLabel,
               style:
                   TextStyle(color: CustomColors.white, fontSize: Dimens.dp_12)),
           Container(
@@ -98,7 +98,7 @@ class SubscribeBodyWebState extends BaseState<SubscribeBodyWeb> {
                     style: TextStyle(
                         color: CustomColors.white, fontSize: Dimens.dp_12)),
                 SizedBox(width: Dimens.dp_10),
-                Text(Strings.terms_and_conditions.toUpperCase(),
+                Text(Strings.terms_condition.toUpperCase(),
                     style: TextStyle(
                         color: CustomColors.white, fontSize: Dimens.dp_12))
               ],

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ombc/common/custom_colors.dart';
+import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/routes.dart';
+import 'package:ombc/utils/navigation.dart';
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
 
@@ -9,23 +12,47 @@ class AppDrawer extends StatelessWidget {
       color: Colors.brown,
       width: 270,
       child: Drawer(
-        child: ListView(
-          children: [
-            _createDrawerItem(text: 'Our Story', onTap: () {  },),
-            _createDrawerItem(text: 'Our Products', onTap: ()=>Navigator.pushReplacementNamed(context, Routes.ourProducts),),
-            _createDrawerItem(text: 'Store Locator', onTap: () {  },),
-            _createDrawerItem(text: 'Contact Us', onTap: () {  },),
-            _createDrawerItem(text: 'FAQ', onTap: () {  },),
-            _createDrawerItem(text: 'Blog', onTap: () {  },),
-            _createDrawerItem(text: 'Login', onTap: () {  },),
-            GestureDetector(
-              onTap: ()=>Navigator.pushReplacementNamed(context, Routes.subscribe),
-              child: Container(
-                color: Colors.white,
-                child: Image.asset('assets/images/ombc-daily-button.png'),
-              ),
-            )
-          ],
+        child: Container(
+          color: CustomColors.drawerBackground,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              SizedBox(height: Dimens.standard_30,),
+              _createDrawerItem(text: 'Our Story', onTap: () {
+                Navigation.navigateAndFinish(context, Routes.ourStory);
+
+              },),
+              _createDrawerItem(text: 'Our Products', onTap: (){
+                Navigation.navigateAndFinish(context, Routes.ourProducts);
+
+              }),
+              _createDrawerItem(text: 'Store Locator', onTap: () {
+                Navigation.navigateAndFinish(context, Routes.storeLocator);
+
+              },),
+              _createDrawerItem(text: 'Contact Us', onTap: () {
+
+              },),
+              _createDrawerItem(text: 'FAQ', onTap: () {
+
+              },),
+              _createDrawerItem(text: 'Blog', onTap: () {
+
+              },),
+              _createDrawerItem(text: 'Login', onTap: () {
+
+              },),
+              GestureDetector(
+                onTap: (){
+                  Navigation.navigateAndFinish(context, Routes.subscribeNow);
+                },
+                child: Container(
+                  color: Colors.white,
+                  child: Image.asset('assets/images/ombc-daily-button.png'),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     ));

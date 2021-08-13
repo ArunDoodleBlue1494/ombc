@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/image_path.dart';
+import 'package:ombc/common/routes.dart';
 import 'package:ombc/common/strings.dart';
+import 'package:ombc/utils/navigation.dart';
 
 class WebAppBar extends StatelessWidget with PreferredSizeWidget {
   const WebAppBar(
@@ -28,43 +31,58 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
+      automaticallyImplyLeading: false,
     //  leading: Container(margin:EdgeInsets.only(left: 20),child: Image.asset(ImagePath.ombcLogo)),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset(ImagePath.ombcLogo,width: 50,height: 50,),
-          SizedBox(width: 120,),
+          Image.asset(ImagePath.ombcLogo,width: Dimens.standard_50,height: Dimens.standard_50,),
+          SizedBox(width: Dimens.standard_120,),
           Row(
             children: [
-              Text(Strings.ourStory,style: TextStyle(color: Colors.black),),
-              SizedBox(width: 20,),
-              Text(Strings.ourProducts),
-              SizedBox(width: 20,),
-              Text(Strings.storeLocator),
-              SizedBox(width: 20,),
+              InkWell(
+                onTap: (){
+                  Navigation.navigateAndFinish(context, Routes.ourStory);
+                },
+                  child: Text(Strings.ourStory,style: TextStyle(color: Colors.black),)),
+              SizedBox(width: Dimens.standard_20,),
+              InkWell(
+                onTap: (){
+                  Navigation.navigateTo(context, Routes.ourProducts);
+                },
+                  child: Text(Strings.ourProducts)),
+              SizedBox(width: Dimens.standard_20,),
+              InkWell(onTap: (){
+                Navigation.navigateTo(context, Routes.storeLocator);
+              },child: Text(Strings.storeLocator)),
+              SizedBox(width: Dimens.standard_20,),
               Text(Strings.contactUs),
-              SizedBox(width: 20,),
+              SizedBox(width: Dimens.standard_20,),
               Text(Strings.faq),
-              SizedBox(width: 20,),
+              SizedBox(width: Dimens.standard_20,),
               Text(Strings.blog),
-              SizedBox(width: 20,),
+              SizedBox(width: Dimens.standard_20,),
               Text(Strings.login),
-              SizedBox(width: 20,),
+              SizedBox(width: Dimens.standard_20,),
             ],
           ),
 
           Row(
             children: [
-              Image.asset(ImagePath.ombcLogo,width: 50,height: 50,),
-              SizedBox(width: 10,),
+              Image.asset(ImagePath.ombcLogo,width: Dimens.standard_50,height: Dimens.standard_50,),
+              SizedBox(width: Dimens.standard_10,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(Strings.subscribeNow,style: TextStyle(fontSize: 8),),
-                  Text(Strings.homeDescription,style: TextStyle(fontSize: 8)),
+                  InkWell(
+                    onTap: (){
+                      Navigation.navigateTo(context, Routes.subscribeNow);
+                    },
+                      child: Text(Strings.subscribeNow,style: TextStyle(fontSize: Dimens.standard_8),)),
+                  Text(Strings.homeDescription,style: TextStyle(fontSize: Dimens.standard_8)),
                 ],
               ),
-              SizedBox(width: 20,)
+              SizedBox(width: Dimens.standard_20,)
             ],
           ),
 

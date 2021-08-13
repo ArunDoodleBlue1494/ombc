@@ -3,8 +3,8 @@ import 'package:ombc/common/custom_colors.dart';
 
 import 'app_drawer.dart';
 
-class OurStory extends StatelessWidget {
-  const OurStory({Key? key}) : super(key: key);
+class OurStoryPageDummy extends StatelessWidget {
+  const OurStoryPageDummy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

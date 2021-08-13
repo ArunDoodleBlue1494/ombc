@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomColors
 {
-  static const Color primaryColor = Color(0xFF009020);
+  //static const Color primaryColor = Color(0xFF009020);
   static const Color greenTextColor = Color(0xFF00B828);
   static const Color darkGreyTextColor = Color(0xFF767676);
   static const Color liteGreyTextColor = Color(0xFF9A9898);
@@ -12,7 +12,11 @@ class CustomColors
   static const Color color422d28 = Color(0xFF422d28);
   static const Color color63433b = Color(0xff63433b);
   static const Color colorEAEAEA = Color(0xFFeaeaea);
+  static const Color hoverColor = Color(0xFFBF7B4B);
+  static const Color primaryColor = Color(0xFF32211E);
+
   static const Color brown = Color(0xFF281310);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
+  static const Color drawerBackground = Color(0xFF2d211f);
 }

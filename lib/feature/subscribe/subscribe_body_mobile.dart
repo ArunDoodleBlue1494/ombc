@@ -196,7 +196,7 @@ class SubscribeBodyMobileState extends BaseState<SubscribeBodyMobile> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(Strings.copyright_text,
+          Text(Strings.copyWriteLabel,
               style:
                   TextStyle(color: CustomColors.white, fontSize: Dimens.dp_8)),
           Container(
@@ -210,7 +210,7 @@ class SubscribeBodyMobileState extends BaseState<SubscribeBodyMobile> {
                     style: TextStyle(
                         color: CustomColors.white, fontSize: Dimens.dp_8)),
                 SizedBox(width: Dimens.dp_8),
-                Text(Strings.terms_and_conditions.toUpperCase(),
+                Text(Strings.terms_condition.toUpperCase(),
                     style: TextStyle(
                         color: CustomColors.white, fontSize: Dimens.dp_8))
               ],
