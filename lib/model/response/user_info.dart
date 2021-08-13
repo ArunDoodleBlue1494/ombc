@@ -1,5 +1,5 @@
-import 'package:ombc/base/base_model.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:ombc/base/base_model.dart';
 
 part 'user_info.g.dart';
 @JsonSerializable()

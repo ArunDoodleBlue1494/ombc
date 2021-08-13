@@ -5,12 +5,11 @@ import 'package:ombc/common/routes.dart';
 import 'package:ombc/common/strings.dart';
 import 'package:ombc/utils/code_snippet.dart';
 import 'package:ombc/utils/extension_utils.dart';
-import 'package:ombc/utils/navigation.dart';
 import 'package:ombc/utils/typography.dart';
 
-class MenuBar extends StatelessWidget with PreferredSizeWidget{
-   MenuBar({Key? key, required this.scaffoldKey}) : super(key: key);
-   final GlobalKey<ScaffoldState> scaffoldKey;
+class MenuBar extends StatelessWidget {
+  const MenuBar({Key? key}) : super(key: key);
+
   Widget _renderHeaderButton(
     String title,
     VoidCallback? onPressed,
@@ -31,120 +30,107 @@ class MenuBar extends StatelessWidget with PreferredSizeWidget{
           }),
         ));
   }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            child: Row(
-              children: <Widget>[
-                SizedBox(
-                  width: CodeSnippet.instance.isDesktop(context)
-                      ? 1.widthPercentage(context)
-                      : 0,
-                ),
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.05,
-                    height: MediaQuery.of(context).size.width * 0.05,
-                    child: ConstrainedBox(
-                        constraints: BoxConstraints.expand(),
-                        child: IconButton(
-                            onPressed: () => {
-                                  // Navigator.popUntil(
-                                  //     context, ModalRoute.withName(Routes.home))
-                                },
-                            padding: EdgeInsets.all(0.0),
-                            icon: Image.asset(ImagePath.ombcLogo)))),
-                CodeSnippet.instance.isDesktop(context)
-                    ? Flexible(
-                        flex: 1,
-                        child: Container(
-                          alignment: Alignment.centerRight,
-                          child: Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: <Widget>[
-                              _renderHeaderButton(Strings.ourStory, () => {
-                              Navigation.navigateAndFinish(context, Routes.ourStory)
-                              }),
-                              SizedBox(
-                                width: 16,
-                              ),
-                              _renderHeaderButton(Strings.ourProducts, () => {
-                              Navigation.navigateAndFinish(context, Routes.ourProducts)
-                              }),
-                              SizedBox(
-                                width: 16,
-                              ),
-                              _renderHeaderButton(Strings.storeLocator, () => {
-                              Navigation.navigateAndFinish(context, Routes.storeLocator)
-                              }),
-                              SizedBox(
-                                width: 16,
-                              ),
-                              _renderHeaderButton(Strings.contactUs, () => {}),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              _renderHeaderButton(Strings.faq, () => {}),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              _renderHeaderButton(Strings.blog, () => {}),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              _renderHeaderButton(Strings.login, () => {}),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              InkWell(
-                                onTap: (){
-
-                                  Navigation.navigateAndFinish(context, Routes.subscribeNow);
-                                },
-                                child: Image.asset(
-                                  ImagePath.ombcSideBanner,
-                                  width: MediaQuery.of(context).size.width * 0.15,
-                                  height: MediaQuery.of(context).size.width * 0.05,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 1.widthPercentage(context),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    : Flexible(
-                        flex: 1,
-                        child: Container(
-                          alignment: Alignment.centerRight,
-                          child: InkWell(
-                             onTap: (){
-                                 scaffoldKey.currentState!.openEndDrawer();
-                             },
-                            child: Icon(
-                              Icons.menu,
-                              color: CustomColors.primaryColor,
-                              size: 24,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          child: Row(
+            children: <Widget>[
+              SizedBox(
+                width: CodeSnippet.instance.isDesktop(context)
+                    ? 1.widthPercentage(context)
+                    : 0,
+              ),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.05,
+                  height: MediaQuery.of(context).size.width * 0.05,
+                  child: ConstrainedBox(
+                      constraints: BoxConstraints.expand(),
+                      child: IconButton(
+                          onPressed: () => {
+                                Navigator.pushReplacementNamed(
+                                    context, Routes.home)
+                              },
+                          padding: EdgeInsets.all(0.0),
+                          icon: Image.asset(ImagePath.ombcLogo)))),
+              CodeSnippet.instance.isDesktop(context)
+                  ? Flexible(
+                      flex: 1,
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        child: Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: <Widget>[
+                            _renderHeaderButton(
+                                Strings.ourStory,
+                                () => {
+                                      Navigator.pushNamed(
+                                          context, Routes.ourStory)
+                                    }),
+                            SizedBox(
+                              width: 16,
                             ),
-                          ),
+                            _renderHeaderButton(Strings.ourProducts, () => {}),
+                            SizedBox(
+                              width: 16,
+                            ),
+                            _renderHeaderButton(Strings.storeLocator, () => {}),
+                            SizedBox(
+                              width: 16,
+                            ),
+                            _renderHeaderButton(Strings.contactUs, () => {}),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            _renderHeaderButton(Strings.faq, () => {}),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            _renderHeaderButton(
+                                Strings.blog,
+                                () => {
+                                      Navigator.pushNamed(context, Routes.blog)
+                                    }),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            _renderHeaderButton(Strings.login, () => {}),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Image.asset(
+                              ImagePath.ombcSideBanner,
+                              width: MediaQuery.of(context).size.width * 0.15,
+                              height: MediaQuery.of(context).size.width * 0.05,
+                              fit: BoxFit.contain,
+                            ),
+                            SizedBox(
+                              width: 1.widthPercentage(context),
+                            ),
+                          ],
                         ),
                       ),
-              ],
-            ),
-          )
-        ],
-      ),
+                    )
+                  : Flexible(
+                      flex: 1,
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        child: Icon(
+                          Icons.menu,
+                          color: CustomColors.primaryColor,
+                          size: 24,
+                        ),
+                      ),
+                    ),
+            ],
+          ),
+        )
+      ],
     );
   }
-
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize =>  Size.fromHeight(200);
 }

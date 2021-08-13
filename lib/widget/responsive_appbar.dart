@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'menubar.dart';
-
+import 'package:ombc/widget/mobile_app_bar.dart';
+import 'package:ombc/widget/web_app_bar.dart';
 
 class ResponsiveAppBar extends StatelessWidget with PreferredSizeWidget {
   const ResponsiveAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
-    return LayoutBuilder(
-        builder: (context, layoutConstraints) {
-          if(layoutConstraints.maxWidth < 768)
-            return MenuBar(scaffoldKey: _scaffoldKey,);
-          else
-            return MenuBar(scaffoldKey: _scaffoldKey,);
-        }
-    );
+    return LayoutBuilder(builder: (context, layoutConstraints) {
+      if (layoutConstraints.maxWidth < 768)
+        return MobileAppBar();
+      else
+        return WebAppBar();
+    });
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize =>  Size.fromHeight(2000);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

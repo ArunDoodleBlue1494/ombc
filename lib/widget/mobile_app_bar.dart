@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:ombc/common/image_path.dart';
 
 class MobileAppBar extends StatelessWidget with PreferredSizeWidget {
-  const MobileAppBar(
-      {Key? key,
-      this.title,
-      this.imageLeft,
-      this.imageRight,
-      this.onClickRightImage,
-      this.backFlag = false,
-      this.onClickLeftImage,
-      this.backGroundColor,
-      this.imageLeftColor,
-      this.textStyle,})
-      : super(key: key);
+  const MobileAppBar({
+    Key? key,
+    this.title,
+    this.imageLeft,
+    this.imageRight,
+    this.onClickRightImage,
+    this.backFlag = false,
+    this.onClickLeftImage,
+    this.backGroundColor,
+    this.imageLeftColor,
+    this.textStyle,
+  }) : super(key: key);
 
   final String? title, imageLeft, imageRight;
   final VoidCallback? onClickRightImage;
@@ -28,12 +28,15 @@ class MobileAppBar extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: Colors.white,
       leading: Image.asset(ImagePath.ombcLogo),
       actions: [
-        Icon(Icons.menu,color: Colors.black,)
+        Icon(
+          Icons.menu,
+          color: Colors.black,
+        )
       ],
     );
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize =>  Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

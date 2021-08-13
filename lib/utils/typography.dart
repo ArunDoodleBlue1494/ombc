@@ -19,7 +19,7 @@ TextStyle headlineSecondaryTextStyle = GoogleFonts.montserrat(
 
 TextStyle subtitleTextStyle = GoogleFonts.openSans(
     textStyle: TextStyle(
-        fontSize: 14, color: CustomColors.color422d28, letterSpacing: 1));
+        fontSize: 14, color: CustomColors.secondaryColor, letterSpacing: 1));
 
 TextStyle bodyTextStyle = GoogleFonts.openSans(
     textStyle: TextStyle(fontSize: 14, color: CustomColors.primaryColor));
@@ -37,4 +37,41 @@ TextStyle menuButtonTextStyle = GoogleFonts.montserrat(
 TextStyle footerTextStyle = GoogleFonts.montserrat(
     textStyle: TextStyle(fontSize: 10, color: Colors.white));
 
+TextStyle textStyle30 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        fontSize: 32,
+        color: CustomColors.primaryColor,
+        fontWeight: FontWeight.w700,
+        wordSpacing: 1.2));
+
+TextStyle textStyleNormal26 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        fontSize: 26, color: CustomColors.primaryColor, wordSpacing: 1.2));
+
+TextStyle textStyle14 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        fontSize: 14,
+        color: CustomColors.darkGreyTextColor,
+        letterSpacing: 1.5,
+        height: 1.5));
+
+TextStyle textStyle10 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        fontSize: 10,
+        color: CustomColors.darkGreyTextColor.withOpacity(0.8),
+        letterSpacing: 1.5,
+        height: 1.5));
+
+TextStyle textStyleMediumGray16 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        fontSize: 16,
+        color: CustomColors.darkGreyTextColor,
+        fontWeight: FontWeight.w400));
+
+TextStyle textStyleRegularGray14 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        fontSize: 14, color: CustomColors.darkGreyTextColor.withOpacity(0.7)));
+
+TextStyle textStyleWhite32 = GoogleFonts.montserrat(
+    textStyle: TextStyle(fontSize: 32, color: Colors.white));
 // Advanced

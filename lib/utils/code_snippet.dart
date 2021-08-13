@@ -3,13 +3,13 @@ import 'dart:io';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 import 'package:ombc/common/routes.dart';
 import 'package:ombc/common/strings.dart';
 import 'package:ombc/model/response/user_info.dart';
 import 'package:ombc/utils/shared_pref_manager.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:intl/intl.dart';
-import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class CodeSnippet {
   static final CodeSnippet _singleton = new CodeSnippet._internal();
@@ -33,7 +33,6 @@ class CodeSnippet {
     return RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(em);
   }
 
-
   String getFormattedDate(
       String date, String inputFormat, String outputFormat) {
     DateFormat dateFormat = DateFormat(inputFormat);
@@ -43,7 +42,7 @@ class CodeSnippet {
   }
 
   String? setData(String data) {
-     return toBeginningOfSentenceCase(data);
+    return toBeginningOfSentenceCase(data);
   }
 
   String generateUserName(List<UserInfo> data) {
@@ -98,4 +97,7 @@ class CodeSnippet {
     return ResponsiveWrapper.of(context).isDesktop;
   }
 
+  bool isTablet(BuildContext context) {
+    return ResponsiveWrapper.of(context).isTablet;
+  }
 }

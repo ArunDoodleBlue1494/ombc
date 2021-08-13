@@ -2,19 +2,17 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ombc/feature/our_products/our_products_screen.dart';
-import 'package:ombc/feature/subscribe/subscribe_page.dart';
+import 'package:ombc/feature/blog/blog_page.dart';
+import 'package:ombc/feature/home/home_page.dart';
+import 'package:ombc/feature/login/login_page.dart';
+import 'package:ombc/feature/our_story/our_story_page.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_framework/responsive_wrapper.dart';
-import 'package:responsive_framework/utils/scroll_behavior.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+
 import 'common/custom_colors.dart';
 import 'common/routes.dart';
 import 'common/strings.dart';
-import 'feature/intro/intro_slider.dart';
-import 'feature/login/login_page.dart';
 import 'feature/login/login_provider.dart';
-import 'feature/our_story/our_story.dart';
-import 'feature/store_locator/store_locator_screen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -29,21 +27,18 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-            create: (context) => LoginProvider()
-        ),
+        ChangeNotifierProvider(create: (context) => LoginProvider()),
       ],
       child: MaterialApp(
           title: Strings.appName,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-              primaryColor: Colors.white,
-              accentColor: CustomColors.color422d28),
+              primaryColor: CustomColors.primaryColor,
+              accentColor: CustomColors.primaryColor),
           builder: (context, widget) => ResponsiveWrapper.builder(
               BouncingScrollWrapper.builder(context, widget!),
               maxWidth: 1600,
@@ -51,26 +46,27 @@ class MyApp extends StatelessWidget {
               defaultScale: true,
               breakpoints: [
                 ResponsiveBreakpoint.resize(480, name: MOBILE),
-                ResponsiveBreakpoint.autoScale(800, name: TABLET),
-                ResponsiveBreakpoint.resize(1000, name: DESKTOP)
+                ResponsiveBreakpoint.autoScale(768, name: TABLET),
+                ResponsiveBreakpoint.resize(1080, name: DESKTOP)
               ],
-
               background: Container(color: Colors.white)),
-
-          home: SafeArea(
-            top: false,
-            bottom: false,
-            // child: OurStory(),
-            child: IntroSlider(),
-          ),
-          routes: {
-            Routes.login: (context) => LoginPage(),
-            Routes.ourStory: (context) => OurStory(),
-            Routes.ourProducts: (context) => OurProducts(),
-            Routes.storeLocator : (context) => StoreLocatorScreen(),
-            Routes.subscribeNow : (context) => SubscribePage(),
-          }
-          ),
+          initialRoute: Routes.home,
+          onGenerateRoute: (RouteSettings settings) {
+            return Routes.fadeThrough(settings, (context) {
+              switch (settings.name) {
+                case Routes.home:
+                  return HomePage();
+                case Routes.ourStory:
+                  return OurStoryPage();
+                case Routes.blog:
+                  return BlogPage();
+                case Routes.login:
+                  return LoginPage();
+                default:
+                  return SizedBox.shrink();
+              }
+            });
+          }),
     );
   }
 }

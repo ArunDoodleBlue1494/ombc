@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:ombc/base/base_provider.dart';
+import 'package:fimber/fimber.dart';
 import 'package:ombc/base/base_model.dart';
+import 'package:ombc/base/base_provider.dart';
 import 'package:ombc/common/constants.dart';
 import 'package:ombc/model/response/login_response.dart';
 import 'package:ombc/utils/shared_pref_manager.dart';
 import 'package:ombc/webservice/api_interface.dart';
 import 'package:ombc/webservice/api_service.dart';
 import 'package:ombc/webservice/dio_error_util.dart';
-import 'package:fimber/fimber.dart';
 
 
 class LoginProvider extends BaseProvider<BaseModel> {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/strings.dart';
 import 'package:ombc/utils/code_snippet.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class DialogUtils {
