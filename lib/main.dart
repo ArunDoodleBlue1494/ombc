@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
               ],
 
               background: Container(color: Colors.white)),
+
           home: SafeArea(
             top: false,
             bottom: false,
@@ -68,7 +69,8 @@ class MyApp extends StatelessWidget {
             Routes.ourProducts: (context) => OurProducts(),
             Routes.storeLocator : (context) => StoreLocatorScreen(),
             Routes.subscribeNow : (context) => SubscribePage(),
-          }),
+          }
+          ),
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:ombc/base/base_state.dart';
 import 'package:ombc/common/custom_colors.dart';
 import 'package:ombc/common/dimens.dart';
 import 'package:ombc/common/strings.dart';
-import 'package:ombc/widget/custom_stepper.dart';
 import 'package:ombc/widget/top_banner_widget.dart';
 
 class DeliverySchedulePage extends StatefulWidget {

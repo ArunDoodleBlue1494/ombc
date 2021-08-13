@@ -3,15 +3,14 @@ import 'package:ombc/common/custom_colors.dart';
 import 'package:ombc/common/image_path.dart';
 import 'package:ombc/common/routes.dart';
 import 'package:ombc/common/strings.dart';
-import 'package:ombc/feature/our_story/app_drawer.dart';
 import 'package:ombc/utils/code_snippet.dart';
 import 'package:ombc/utils/extension_utils.dart';
 import 'package:ombc/utils/navigation.dart';
 import 'package:ombc/utils/typography.dart';
 
 class MenuBar extends StatelessWidget with PreferredSizeWidget{
-  const MenuBar({Key? key}) : super(key: key);
-
+   MenuBar({Key? key, required this.scaffoldKey}) : super(key: key);
+   final GlobalKey<ScaffoldState> scaffoldKey;
   Widget _renderHeaderButton(
     String title,
     VoidCallback? onPressed,
@@ -32,7 +31,6 @@ class MenuBar extends StatelessWidget with PreferredSizeWidget{
           }),
         ));
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -128,8 +126,7 @@ class MenuBar extends StatelessWidget with PreferredSizeWidget{
                           alignment: Alignment.centerRight,
                           child: InkWell(
                              onTap: (){
-                               print("click");
-                               Scaffold.of(context).openEndDrawer();
+                                 scaffoldKey.currentState!.openEndDrawer();
                              },
                             child: Icon(
                               Icons.menu,

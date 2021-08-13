@@ -4,6 +4,7 @@ import 'package:ombc/common/image_path.dart';
 import 'package:ombc/feature/our_story/app_drawer.dart';
 import 'package:ombc/widget/menubar.dart';
 import 'package:ombc/utils/extension_utils.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
 
 class IntroSlider extends StatelessWidget {
   const IntroSlider({Key? key}) : super(key: key);
@@ -22,9 +23,12 @@ class IntroSlider extends StatelessWidget {
         height: height,),
 
     ];
+    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
     return Scaffold(
-      endDrawer: AppDrawer(),
-      appBar: MenuBar(),
+      key: _scaffoldKey,
+      endDrawer: ResponsiveWrapper.of(context).isDesktop ? null :AppDrawer(),
+      appBar: MenuBar(scaffoldKey: _scaffoldKey,),
       body: Container(
         width: 100.widthPercentage(context),
         child: CarouselSlider(
